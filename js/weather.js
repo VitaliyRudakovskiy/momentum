@@ -9,7 +9,7 @@ async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value = getCityFromLocalStorage()}&lang=en&appid=90e166c017ac61a4ab7f663419c4da04&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
-    
+    setTimeout(getWeather, 3000);
     weatherIcon.className = 'weather-icon owf';
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
