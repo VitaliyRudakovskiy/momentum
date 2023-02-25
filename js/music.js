@@ -49,7 +49,6 @@ function playAudio() {
 
     if (!isPlaying) {
         playButton.classList.add('pause');
-        //audio.currentTime = 0;
         audio.play();
         isPlaying = true;
     }
