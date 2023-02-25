@@ -10,16 +10,39 @@
 </head>
 <body>
   <header class="header">
-    <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+    <div class="player">       
+      <div class="player__container">  
+        <div class="player__controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <div class="player__body">
+          <div class="player__body-main">
+            <div class="player-time">
+              <div class="current-time">0:00</div>
+              <div class="divider">/</div>
+              <div class="music-length"></div>
+            </div>
+            <div class="music-name"></div>
+            <div class="volume__container">
+              <div class="volume-button">
+                <div class="volume volume-icon"></div>
+              </div>
+              <div class="volume-slider">
+                <div class="volume-percentage"></div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="progress-bar"></div>
+          </div>
+        </div> 
       </div>
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
+      <input type="text" class="city" placeholder="[City]"/>
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -39,16 +62,34 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" />
+      <input type="text" class="name" placeholder="[Enter name]"/>
     </div>
   </main>
   <footer class="footer">
+    <div class="settings__container">
+      <div class="language-change">
+        <div class="language__main">Language</div>
+        <div class="button r" id="button-3">
+          <input type="checkbox" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+       </div>
+      </div>
+      <div class="background-source">
+        <div class="background-source__main">Background source</div>
+        <input type="text" class="background-source__input">
+      </div>
+      <div class="hide-blocks__container">
+        <div class="hide-blocks__main">Hide sections</div>
+      </div>
+      <div class="settings-icon"></div>
+    </div>
     <button class="change-quote"></button>
     <div>
       <div class="quote"></div>
       <div class="author"></div>
     </div>
   </footer>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>

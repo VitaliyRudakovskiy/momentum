@@ -31,12 +31,84 @@ body {
   padding: 20px;
 }
 
-.player-controls {
+.player__container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.player__controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin-right: 30px;
+}
+
+.player__body {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.player__body-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-time {
+  display: flex;
+  gap: 3px;
+  margin-right: 30px;
+}
+
+.music-name {
+  margin-right: 30px;
+}
+
+.volume__container {
+  cursor: pointer;
+  display: flex;
+}
+
+.volume-slider {
+  position: relative;
+  top: 2px;
+  height: 10px;
+  width: 75px;
+  background: white;
+  transition: 0.3s;
+}
+
+.volume-percentage {
+  background: coral;
+  height: 100%;
+  width: 75%;
+}
+
+.volume-icon {
+  position: relative;
+  bottom: 3px;
+  background-image: url(../assets/img/volume.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.timeline {
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  height: 7px;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background: coral;
+  width: 0%;
+  height: 100%;
+  transition: 0.25s;
 }
 
 .play-list {
@@ -51,6 +123,7 @@ body {
   opacity: .8;
   cursor: pointer;
   transition: .3s;
+  z-index: 100;
 }
 
 .play-item:hover {
@@ -249,6 +322,104 @@ body {
   height: 30vh;
   min-height: 160px;  
   padding: 20px;
+}
+
+.settings__container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #5d4949;
+  border-radius: 15px;
+  opacity: 0.8;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+}
+
+.settings-icon {
+  background-image: url(../assets/img/settings.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 44px;
+  height: 44px;
+}
+
+.background-source__input {
+  width: 200px;
+  height: 40px;
+}
+
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: absolute;
+  width: 74px;
+  height: 36px;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  z-index: 1;
+}
+
+#button-3 .knobs:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 10px;
+  color: #fff;
+  padding: 9px 4px;
+  background-color: #03a9f4;
+  border-radius: 50%;
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+
+#button-3 .checkbox:active + .knobs:before {
+  width: 46px;
+  border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before {
+  margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before {
+  left: 42px;
+  background-color: #f44336;
+}
+
+#button-3 .checkbox:checked ~ .layer {
+  background-color: #fcebeb;
 }
 
 .change-quote {
