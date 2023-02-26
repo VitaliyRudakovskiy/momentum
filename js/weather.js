@@ -5,8 +5,15 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('.city');
 
+const weatherSettings = {
+    weatherLanguage: 'en',
+    windSpeed: 'Wind speed',
+    windSpeedMetric: 'm/s',
+    humidityText: 'Humidity'
+}
+
 async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value = getCityFromLocalStorage()}&lang=en&appid=90e166c017ac61a4ab7f663419c4da04&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value = getCityFromLocalStorage()}&lang=${weatherSettings.weatherLanguage}&appid=90e166c017ac61a4ab7f663419c4da04&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
 
@@ -23,8 +30,8 @@ async function getWeather() {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${data.main.temp.toFixed(0)}°C`;
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `Wind speed: ${data.wind.speed} m/s`;
-        humidity.textContent = `Humidity: ${data.main.humidity}%`;
+        wind.textContent = `${weatherSettings.windSpeed}: ${data.wind.speed} ${weatherSettings.windSpeedMetric}`;
+        humidity.textContent = `${weatherSettings.humidityText}: ${data.main.humidity}%`;
     }
 }
 
@@ -51,3 +58,23 @@ window.addEventListener('load', getCityFromLocalStorage);
 
 document.addEventListener('DOMContentLoaded', getWeather);
 city.addEventListener('keypress', setCity);
+
+const languageSwitcher = document.querySelector('.language-weather');
+
+function changeLanguageWeather() {
+    if (languageSwitcher.checked) {
+        weatherSettings.weatherLanguage = 'ru';
+        weatherSettings.windSpeed = 'Скорость ветра';  
+        weatherSettings.windSpeedMetric = 'м/с';
+        weatherSettings.humidityText = 'Влажность'; 
+    }
+    else {
+        weatherSettings.weatherLanguage = 'en';
+        weatherSettings.windSpeed = 'Wind speed';
+        weatherSettings.windSpeedMetric = 'm/s';
+        weatherSettings.humidityText = 'Humidity';
+    }
+    getWeather();
+}
+
+languageSwitcher.addEventListener('click', changeLanguageWeather);

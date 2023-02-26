@@ -3,4 +3,4 @@ import './js/weather.js';
 import './js/slider.js';
 import './js/quotes.js';
 import './js/music.js';
-import './js/settings.js';
+import './js/hide.js';
