@@ -8,6 +8,7 @@ const hideMusicButton = document.querySelector('.hide-music-btn');
 const settingsButton = document.querySelector('.settings-icon');
 const settingsContainer = document.querySelector('.settings__container');
 
+settingsContainer.style.display = 'none';
 let isOpen = false;
 
 function openSettings() {
