@@ -325,30 +325,81 @@ body {
 }
 
 .settings__container {
+  display: none;
   position: absolute;
-  bottom: 10px;
+  bottom: 70px;
   left: 10px;
   display: flex;
+  justify-content: space-between;
+  align-items: start; 
   flex-direction: column;
   background-color: #5d4949;
   border-radius: 15px;
   opacity: 0.8;
   width: 400px;
-  height: 500px;
+  height: 380px;
   padding: 20px;
+  padding-right: 40px;
+  font-size: 18px;
+} 
+
+.language__main {
+  display: flex;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.language__greeting,
+.language__weather {
+  display: flex;
+  align-items: center;
+}
+
+.language__greeting-header,
+.language__weather-header {
+  margin-right: 20px;
+}
+
+.language-change__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+
+.hide-blocks__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px 0;
+}
+
+.hide-blocks__body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 0;
+}
+
+.hide-blocks__element {
+  display: flex;
+  align-items: center;
+}
+
+.hide-blocks__element-header {
+  margin-right: 20px;
 }
 
 .settings-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
   background-image: url(../assets/img/settings.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 44px;
   height: 44px;
-}
-
-.background-source__input {
-  width: 200px;
-  height: 40px;
+  cursor: pointer;
 }
 
 .knobs,
@@ -361,13 +412,13 @@ body {
 }
 
 .button {
-  position: absolute;
+  position: relative;
   width: 74px;
   height: 36px;
 }
 
-.button.r,
-.button.r .layer {
+.button.switch,
+.button.switch .layer {
   border-radius: 100px;
 }
 
@@ -390,8 +441,8 @@ body {
   z-index: 1;
 }
 
-#button-3 .knobs:before {
-  content: "";
+.switch .knobs:before {
+  content: '';
   position: absolute;
   top: 4px;
   left: 4px;
@@ -404,22 +455,34 @@ body {
   transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
 }
 
-#button-3 .checkbox:active + .knobs:before {
+.switch .checkbox:active + .knobs:before {
   width: 46px;
   border-radius: 100px;
 }
 
-#button-3 .checkbox:checked:active + .knobs:before {
+.switch .checkbox:checked:active + .knobs:before {
   margin-left: -26px;
 }
 
-#button-3 .checkbox:checked + .knobs:before {
+.switch .checkbox:checked + .knobs:before {
   left: 42px;
   background-color: #f44336;
 }
 
-#button-3 .checkbox:checked ~ .layer {
+.switch .checkbox:checked ~ .layer {
   background-color: #fcebeb;
+}
+
+.language-change-button .knobs:before {
+  content: "EN";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+
+.language-change-button .checkbox:checked + .knobs:before {
+  content: "RU";
 }
 
 .change-quote {
